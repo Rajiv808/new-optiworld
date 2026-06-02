@@ -3,19 +3,17 @@ import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAYFKnTPwv2htOC5skyct-IJpkXWwE_zak",
-  authDomain: "optiworld.firebaseapp.com",
-  projectId: "optiworld",
-  storageBucket: "optiworld.firebasestorage.app",
-  messagingSenderId: "382626927271",
-  appId: "1:382626927271:web:f611c6066d6f03ed8ec182",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId:
+    import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
-const app =
-  initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
 
-export const db =
-  getFirestore(app)
+export const db = getFirestore(app)
 
-export const auth =
-  getAuth(app)
+export const auth = getAuth(app)
