@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "../firebase/firebase"
-import { uploadImage } from "../services/uploadService"
+import { uploadImage } from "../services/UploadService"
 
 const AddProduct = () => {
   const [loading, setLoading] = useState(false)
