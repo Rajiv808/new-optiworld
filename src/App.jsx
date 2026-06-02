@@ -13,7 +13,7 @@ import ProductList from "./admin/ProductList"
 import EditProduct from "./admin/EditProduct"
 
 import ProtectedRoute from "./components/ProtectedRoute"
-import WhatsappButton from "./components/WhatsappButton"
+import whatsapp from "./components/whatsapp"
 
 function App() {
   return (
@@ -88,7 +88,7 @@ function App() {
 
       </Routes>
 
-      <WhatsappButton />
+      <whatsapp />
 
     </BrowserRouter>
   )
