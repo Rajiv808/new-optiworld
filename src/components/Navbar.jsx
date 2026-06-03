@@ -16,8 +16,8 @@ const Navbar = () => {
       transition={{ duration: 0.8 }}
       className="fixed top-0 left-0 w-full z-50 bg-[#C2410C]/95 backdrop-blur-xl shadow-xl"
     >
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center justify-between gap-4">
+      {/* Main Container: Added px-4 to guarantee a safety margin on mobile screens */}
+      <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         
         {/* Premium Brand Logo Section */}
         <Link
@@ -38,7 +38,7 @@ const Navbar = () => {
               New
             </span>
             {/* Main Brand Text */}
-            <span className="text-xl sm:text-2xl font-black text-white tracking-wide drop-shadow-sm">
+            <span className="text-xl sm:text-2xl font-black text-white tracking-wide drop-shadow-sm truncate">
               Optiworld
             </span>
           </div>
@@ -71,10 +71,10 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button: Handled margins and click targets */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors focus:outline-none shrink-0"
+          className="md:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors focus:outline-none shrink-0 z-50 mr-1"
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
