@@ -9,7 +9,7 @@ const Navbar = () => {
     useState(false)
 
   const navLink =
-    "text-gray-700 hover:text-orange-600 transition-all duration-300 font-medium"
+    "text-white hover:text-orange-200 transition-all duration-300 font-medium"
 
   return (
 
@@ -17,14 +17,14 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm"
+      className="fixed top-0 left-0 w-full z-50 bg-[#C2410C]/95 backdrop-blur-xl shadow-xl"
     >
 
-      <div className="max-w-7xl mx-auto h-20 px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto h-20 px-4 md:px-6 flex items-center justify-between">
 
         <Link
           to="/"
-          className="text-2xl md:text-3xl font-black text-orange-700"
+          className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-wide"
         >
           ⁿᵉʷ Optiworld
         </Link>
@@ -72,7 +72,18 @@ const Navbar = () => {
             href="https://wa.me/919477110367"
             target="_blank"
             rel="noreferrer"
-            className="bg-orange-700 hover:bg-orange-800 text-white px-6 py-3 rounded-xl transition duration-300 font-semibold"
+            className="
+              bg-white
+              text-[#C2410C]
+              px-6
+              py-3
+              rounded-xl
+              font-semibold
+              hover:bg-orange-100
+              transition-all
+              duration-300
+              shadow-lg
+            "
           >
             WhatsApp
           </a>
@@ -85,7 +96,7 @@ const Navbar = () => {
           onClick={() =>
             setMenuOpen(!menuOpen)
           }
-          className="md:hidden"
+          className="md:hidden text-white"
         >
 
           {
@@ -102,7 +113,7 @@ const Navbar = () => {
 
       {menuOpen && (
 
-        <div className="md:hidden bg-white border-t shadow-lg">
+        <div className="md:hidden bg-[#C2410C] border-t border-orange-500 shadow-xl">
 
           <div className="flex flex-col p-6 gap-5">
 
@@ -160,7 +171,17 @@ const Navbar = () => {
               href="https://wa.me/919477110367"
               target="_blank"
               rel="noreferrer"
-              className="bg-orange-700 hover:bg-orange-800 text-white text-center py-3 rounded-xl transition duration-300"
+              className="
+                bg-white
+                text-[#C2410C]
+                text-center
+                py-3
+                rounded-xl
+                font-semibold
+                hover:bg-orange-100
+                transition-all
+                duration-300
+              "
             >
               WhatsApp
             </a>

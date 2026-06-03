@@ -1,97 +1,170 @@
-import { Phone, Mail, Clock, MapPin } from "lucide-react"
+import {
+  Phone,
+  Mail,
+  Clock,
+  MapPin
+} from "lucide-react"
+
 import { motion } from "framer-motion"
 
 const ContactSection = () => {
+
   return (
+
     <section
       id="contact"
-      className="relative py-24 bg-gradient-to-b from-[#FAF7F2] to-white overflow-hidden"
+      className="relative py-16 md:py-24 bg-gradient-to-b from-[#FFF7ED] to-white overflow-hidden"
     >
 
-      <div className="absolute top-10 left-10 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-40"></div>
+      {/* Background Glow */}
 
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-50"></div>
+      <div className="absolute top-10 left-10 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-30"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-50 rounded-full blur-3xl opacity-40"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+
+        {/* Heading */}
 
         <div className="text-center">
 
-          <p className="text-orange-600 font-semibold tracking-widest uppercase">
+          <p className="text-[#C2410C] font-semibold tracking-[3px] uppercase text-sm">
+
             Contact Us
+
           </p>
 
-          <h2 className="text-5xl font-bold mt-4">
-            Visit Optiworld Today
+          <h2 className="text-3xl md:text-5xl font-black mt-4 text-gray-900">
+
+            Visit ⁿᵉʷ Optiworld Today
+
           </h2>
 
-          <p className="text-gray-500 mt-5 max-w-2xl mx-auto">
-            Premium eyewear, professional eye testing and expert vision care services.
+          <p className="text-gray-600 mt-5 max-w-2xl mx-auto text-base md:text-lg">
+
+            Experience premium eyewear, advanced eye testing
+            and expert vision care under one roof.
+
           </p>
 
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 mt-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 mt-14 md:mt-16 items-start">
 
           {/* Left Side */}
 
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-[35px] p-8 shadow-xl"
+            initial={{
+              opacity: 0,
+              x: -60
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0
+            }}
+            transition={{
+              duration: 0.8
+            }}
+            viewport={{
+              once: true
+            }}
+            className="
+              bg-white
+              rounded-[35px]
+              p-6 md:p-8
+              shadow-2xl
+              border
+              border-orange-100
+            "
           >
 
-            <h3 className="text-3xl font-bold mb-8">
+            <h3 className="text-2xl md:text-3xl font-black mb-8 text-gray-900">
+
               Contact Information
+
             </h3>
 
             <div className="space-y-8">
 
+              {/* Phone */}
+
               <div className="flex gap-4">
 
-                <div className="bg-orange-100 p-4 rounded-2xl">
-                  <Phone className="text-orange-700" />
+                <div className="
+                  bg-gradient-to-br
+                  from-orange-100
+                  to-orange-200
+                  p-4
+                  rounded-2xl
+                ">
+
+                  <Phone className="text-[#C2410C]" />
+
                 </div>
 
                 <div>
-                  <h4 className="font-bold">
+
+                  <h4 className="font-bold text-gray-900">
                     Phone Number
                   </h4>
 
                   <p className="text-gray-600">
                     +91 9477110367
                   </p>
+
                 </div>
 
               </div>
 
+              {/* Email */}
+
               <div className="flex gap-4">
 
-                <div className="bg-orange-100 p-4 rounded-2xl">
-                  <Mail className="text-orange-700" />
+                <div className="
+                  bg-gradient-to-br
+                  from-orange-100
+                  to-orange-200
+                  p-4
+                  rounded-2xl
+                ">
+
+                  <Mail className="text-[#C2410C]" />
+
                 </div>
 
                 <div>
-                  <h4 className="font-bold">
+
+                  <h4 className="font-bold text-gray-900">
                     Email Address
                   </h4>
 
                   <p className="text-gray-600">
                     info@optiworld.com
                   </p>
+
                 </div>
 
               </div>
 
+              {/* Hours */}
+
               <div className="flex gap-4">
 
-                <div className="bg-orange-100 p-4 rounded-2xl">
-                  <Clock className="text-orange-700" />
+                <div className="
+                  bg-gradient-to-br
+                  from-orange-100
+                  to-orange-200
+                  p-4
+                  rounded-2xl
+                ">
+
+                  <Clock className="text-[#C2410C]" />
+
                 </div>
 
                 <div>
-                  <h4 className="font-bold">
+
+                  <h4 className="font-bold text-gray-900">
                     Opening Hours
                   </h4>
 
@@ -102,17 +175,32 @@ const ContactSection = () => {
                   <p className="text-gray-600">
                     10:00 AM - 9:00 PM
                   </p>
+
                 </div>
 
               </div>
 
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-10">
+            {/* Buttons */}
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-10">
 
               <a
                 href="tel:+919477110367"
-                className="bg-orange-700 hover:bg-orange-800 text-white px-6 py-3 rounded-xl transition"
+                className="
+                  flex-1
+                  text-center
+                  bg-[#C2410C]
+                  hover:bg-[#9A3412]
+                  text-white
+                  px-6
+                  py-4
+                  rounded-xl
+                  font-semibold
+                  transition-all
+                  duration-300
+                "
               >
                 Call Now
               </a>
@@ -121,7 +209,19 @@ const ContactSection = () => {
                 href="https://wa.me/919477110367"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl transition"
+                className="
+                  flex-1
+                  text-center
+                  bg-green-500
+                  hover:bg-green-600
+                  text-white
+                  px-6
+                  py-4
+                  rounded-xl
+                  font-semibold
+                  transition-all
+                  duration-300
+                "
               >
                 WhatsApp
               </a>
@@ -133,15 +233,36 @@ const ContactSection = () => {
           {/* Right Side */}
 
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{
+              opacity: 0,
+              x: 60
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0
+            }}
+            transition={{
+              duration: 0.8
+            }}
+            viewport={{
+              once: true
+            }}
           >
 
             {/* Map */}
 
-            <div className="bg-white rounded-[35px] shadow-xl overflow-hidden h-[350px]">
+            <div
+              className="
+                bg-white
+                rounded-[35px]
+                shadow-2xl
+                border
+                border-orange-100
+                overflow-hidden
+                h-[300px]
+                md:h-[350px]
+              "
+            >
 
               <iframe
                 title="Optiworld Location"
@@ -154,34 +275,56 @@ const ContactSection = () => {
 
             </div>
 
-            {/* Address Below Map */}
+            {/* Address */}
 
-            <div className="bg-white rounded-[35px] shadow-xl p-6 mt-6">
+            <div
+              className="
+                bg-white
+                rounded-[35px]
+                shadow-2xl
+                border
+                border-orange-100
+                p-6
+                mt-6
+              "
+            >
 
-              <div className="flex items-start gap-4">
+              <div className="flex gap-4">
 
-                <div className="bg-orange-100 p-4 rounded-2xl">
+                <div className="
+                  bg-gradient-to-br
+                  from-orange-100
+                  to-orange-200
+                  p-4
+                  rounded-2xl
+                ">
 
-                  <MapPin className="text-orange-700" />
+                  <MapPin className="text-[#C2410C]" />
 
                 </div>
 
                 <div>
 
-                  <h4 className="text-xl font-bold mb-2">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+
                     Store Address
+
                   </h4>
 
                   <p className="text-gray-600 leading-7">
 
-                    84/A, Santoshpur Avenue,
+                    84/A, Santoshpur Avenue
                     <br />
-                    Aurobindo Block,
+
+                    Aurobindo Block
                     <br />
-                    Santoshpur,
+
+                    Santoshpur
                     <br />
-                    Kolkata,
+
+                    Kolkata
                     <br />
+
                     West Bengal - 700075
 
                   </p>
@@ -199,7 +342,9 @@ const ContactSection = () => {
       </div>
 
     </section>
+
   )
+
 }
 
 export default ContactSection

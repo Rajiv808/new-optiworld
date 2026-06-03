@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
   const handleWhatsApp = () => {
 
     const message =
-`Hello Optiworld,
+`Hello ⁿᵉʷ Optiworld,
 
 I am interested in:
 

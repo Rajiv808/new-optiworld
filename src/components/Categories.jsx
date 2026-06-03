@@ -7,7 +7,6 @@ import {
   Users,
   Glasses,
   Sun,
-  Eye
 } from "lucide-react"
 
 const Categories = () => {
@@ -18,87 +17,140 @@ const Categories = () => {
     {
       title: "Men",
       route: "/shop?gender=Men",
-      icon: <User size={24} />
+      icon: <User size={28} />
     },
     {
       title: "Women",
       route: "/shop?gender=Women",
-      icon: <UserRound size={24} />
+      icon: <UserRound size={28} />
     },
     {
       title: "Unisex",
       route: "/shop?gender=Unisex",
-      icon: <Users size={24} />
+      icon: <Users size={28} />
     },
     {
       title: "Spectacles",
       route: "/shop?type=Spectacles",
-      icon: <Glasses size={24} />
+      icon: <Glasses size={28} />
     },
     {
       title: "Sunglasses",
       route: "/shop?type=Sunglasses",
-      icon: <Sun size={24} />
+      icon: <Sun size={28} />
     },
-    
   ]
 
   return (
-    <section className="py-16 bg-[#FAF7F2]">
 
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="pt-6 pb-14 md:pb-20 bg-[#FFF7ED]">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* Heading */}
 
         <div className="text-center">
 
-          <p className="text-orange-600 font-semibold tracking-wider">
-            CATEGORIES
+          <p className="text-[#C2410C] font-semibold tracking-[3px] uppercase text-sm">
+
+            Categories
+
           </p>
 
-          <h2 className="text-3xl font-bold mt-3">
+          <h2 className="text-3xl md:text-5xl font-black text-gray-900 mt-3">
+
             Shop By Category
+
           </h2>
 
-          <p className="text-gray-500 mt-3">
-            Explore our premium collections
+          <p className="text-gray-600 mt-3 text-base md:text-lg">
+
+            Explore our premium eyewear collections
+
           </p>
 
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mt-12">
+        {/* Categories Grid */}
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mt-8">
 
           {categories.map((item, index) => (
 
             <motion.div
               key={index}
+              initial={{
+                opacity: 0,
+                y: 20
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0
+              }}
+              transition={{
+                delay: index * 0.08
+              }}
+              viewport={{
+                once: true
+              }}
               whileHover={{
-                y: -5,
+                y: -6,
                 scale: 1.03
+              }}
+              whileTap={{
+                scale: 0.98
               }}
               onClick={() =>
                 navigate(item.route)
               }
               className="
                 bg-white
-                px-6
-                py-4
-                rounded-2xl
-                shadow-sm
-                hover:shadow-lg
+                rounded-3xl
+                p-5
                 cursor-pointer
-                flex
-                items-center
-                gap-3
-                transition
+                border
+                border-orange-100
+                shadow-md
+                hover:shadow-xl
+                transition-all
+                duration-300
+                text-center
               "
             >
 
-              <div className="text-orange-700">
+              <div
+                className="
+                  w-14
+                  h-14
+                  mx-auto
+                  rounded-2xl
+                  bg-gradient-to-br
+                  from-orange-100
+                  to-orange-200
+                  flex
+                  items-center
+                  justify-center
+                  text-[#C2410C]
+                "
+              >
+
                 {item.icon}
+
               </div>
 
-              <span className="font-semibold">
+              <h3
+                className="
+                  mt-4
+                  text-sm
+                  md:text-base
+                  font-bold
+                  text-gray-900
+                "
+              >
+
                 {item.title}
-              </span>
+
+              </h3>
 
             </motion.div>
 
@@ -109,7 +161,9 @@ const Categories = () => {
       </div>
 
     </section>
+
   )
+
 }
 
 export default Categories
