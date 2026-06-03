@@ -136,6 +136,7 @@ Time: ${formData.time}`
           <input
             type="date"
             name="date"
+            placeholder="date"
             value={formData.date}
             onChange={handleChange}
             className="w-full border p-4 rounded-xl"
