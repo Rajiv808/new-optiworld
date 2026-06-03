@@ -1,118 +1,70 @@
-import { useState } from "react"
-import { collection, addDoc } from "firebase/firestore"
-import { db } from "../firebase/firebase"
+import { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 
 const EyeTest = () => {
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading] =
-    useState(false)
-
-  const [formData, setFormData] =
-    useState({
-      name: "",
-      phone: "",
-      date: "",
-      time: "",
-    })
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    time: "",
+  });
 
   const handleChange = (e) => {
-
     setFormData({
       ...formData,
-      [e.target.name]:
-        e.target.value,
-    })
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handleSubmit =
-    async (e) => {
+    try {
+      setLoading(true);
 
-      e.preventDefault()
+      await addDoc(collection(db, "appointments"), {
+        ...formData,
+        createdAt: new Date(),
+      });
 
-      try {
+      const whatsappMessage = `New Eye Test Booking\n\nName: ${formData.name}\n\nPhone: ${formData.phone}\n\nDate: ${formData.date}\n\nTime: ${formData.time}`;
 
-        setLoading(true)
+      const whatsappUrl = `https://wa.me/919477110367?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
 
-        await addDoc(
-          collection(
-            db,
-            "appointments"
-          ),
-          {
-            ...formData,
-            createdAt:
-              new Date(),
-          }
-        )
+      window.open(whatsappUrl, "_blank");
 
-        const whatsappMessage =
-          `New Eye Test Booking
+      alert("Appointment Booked Successfully");
 
-Name: ${formData.name}
-
-Phone: ${formData.phone}
-
-Date: ${formData.date}
-
-Time: ${formData.time}`
-
-        const whatsappUrl =
-          `https://wa.me/919477110367?text=${encodeURIComponent(
-            whatsappMessage
-          )}`
-
-        window.open(
-          whatsappUrl,
-          "_blank"
-        )
-
-        alert(
-          "Appointment Booked Successfully"
-        )
-
-        setFormData({
-          name: "",
-          phone: "",
-          date: "",
-          time: "",
-        })
-
-      } catch (error) {
-
-        console.error(error)
-
-        alert(
-          error.message
-        )
-
-      } finally {
-
-        setLoading(false)
-
-      }
-
+      setFormData({
+        name: "",
+        phone: "",
+        date: "",
+        time: "",
+      });
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    } finally {
+      setLoading(false);
     }
+  };
 
   return (
-
     <section className="min-h-screen flex items-center justify-center bg-[#FAF7F2] p-6">
-
       <div className="bg-white p-10 rounded-3xl shadow w-full max-w-xl">
-
-        <h1 className="text-4xl font-bold mb-3">
-          Book Eye Test
-        </h1>
+        <h1 className="text-4xl font-bold mb-3">Book Eye Test</h1>
 
         <p className="text-gray-500 mb-8">
           Schedule your professional eye examination.
         </p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-5"
-        >
-
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Full Name Input */}
           <input
             type="text"
             name="name"
@@ -123,6 +75,7 @@ Time: ${formData.time}`
             required
           />
 
+          {/* Phone Number Input */}
           <input
             type="tel"
             name="phone"
@@ -133,28 +86,32 @@ Time: ${formData.time}`
             required
           />
 
+          {/* Date Input with Dynamic Placeholder Fix */}
           <input
-            type="date"
+            type={formData.date ? "date" : "text"}
             name="date"
-            placeholder="date"
+            placeholder="Select Appointment Date"
             value={formData.date}
             onChange={handleChange}
-            className="w-full border p-4 rounded-xl"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => {
+              if (!formData.date) {
+                e.target.type = "text";
+              }
+            }}
+            className="w-full border p-4 rounded-xl text-gray-700 placeholder-gray-400"
             required
           />
 
+          {/* Time Slot Selector */}
           <select
             name="time"
             value={formData.time}
             onChange={handleChange}
-            className="w-full border p-4 rounded-xl"
+            className="w-full border p-4 rounded-xl bg-white text-gray-700"
             required
           >
-
-            <option value="">
-              Select Time Slot
-            </option>
-
+            <option value="">Select Time Slot</option>
             <option value="10:00 AM">10:00 AM</option>
             <option value="10:30 AM">10:30 AM</option>
             <option value="11:00 AM">11:00 AM</option>
@@ -178,29 +135,20 @@ Time: ${formData.time}`
             <option value="08:00 PM">08:00 PM</option>
             <option value="08:30 PM">08:30 PM</option>
             <option value="09:00 PM">09:00 PM</option>
-
           </select>
 
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-orange-700 text-white py-4 rounded-xl hover:bg-orange-800 transition"
+            className="w-full bg-orange-700 text-white py-4 rounded-xl hover:bg-orange-800 transition disabled:bg-orange-400"
           >
-            {
-              loading
-                ? "Booking..."
-                : "Book Appointment"
-            }
+            {loading ? "Booking..." : "Book Appointment"}
           </button>
-
         </form>
-
       </div>
-
     </section>
+  );
+};
 
-  )
-
-}
-
-export default EyeTest
+export default EyeTest;
