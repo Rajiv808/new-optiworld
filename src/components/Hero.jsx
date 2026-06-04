@@ -7,6 +7,9 @@ import {
   Sun
 } from "lucide-react"
 
+// Import your landscape image from the src/assets directory
+import heroImage from "../assets/2.jpeg"
+
 const Hero = () => {
   const navigate = useNavigate()
 
@@ -114,74 +117,125 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Visual Side */}
+          {/* Right Visual Side (Widescreen No-Crop Edition) */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="relative flex items-center justify-center min-h-[450px]"
+            className="relative flex justify-center items-center mt-10 lg:mt-0 w-full"
           >
-            {/* Top Floating Badge Card */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-              className="absolute -top-4 left-4 bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-orange-50 z-10"
-            >
-              <h3 className="text-2xl sm:text-3xl font-black text-[#C2410C]">5000+</h3>
-              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-0.5">
-                Happy Customers
-              </p>
-            </motion.div>
+            {/* Orange Glow behind the image frame */}
+            <div className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-orange-200 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
 
-            {/* Main Premium Card Component */}
-            <div className="w-full max-w-md bg-white/70 backdrop-blur-2xl rounded-[40px] shadow-[0_32px_64px_-16px_rgba(194,65,12,0.12)] border border-white/60 p-10 flex flex-col items-center justify-center relative group overflow-hidden">
-              
-              {/* Subtle Radial Gradient behind central glass piece */}
-              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-orange-100/50 rounded-full blur-xl -z-10 pointer-events-none" />
-
-              {/* Central Iconic Frame */}
-              <div className="mb-8">
-                <div className="w-28 h-28 rounded-3xl bg-[#C2410C] flex items-center justify-center shadow-lg shadow-orange-700/30 transform group-hover:rotate-3 transition-transform duration-500">
-                  <Glasses size={56} className="text-white" />
-                </div>
+            {/* Main Image Container adjusted for Landscape */}
+            <div className="relative z-10 group w-full max-w-xl">
+              <div
+                className="
+                  w-full
+                  aspect-[16/9]
+                  rounded-[24px] sm:rounded-[32px] md:rounded-[40px]
+                  overflow-hidden
+                  border-[4px] md:border-[8px]
+                  border-white
+                  shadow-[0_25px_80px_rgba(0,0,0,0.15)]
+                  bg-white/50
+                "
+              >
+                <img
+                  src={heroImage}
+                  alt="Premium Eyewear Banner"
+                  className="w-full h-full object-contain transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                />
               </div>
 
-              {/* Matching Brand Logo Layout: Glass Lens + Left Suffix Design */}
-              <div className="flex items-center gap-3 select-none mt-2">
-                {/* Micro Glass Lens Loop Graphic */}
-                <div className="w-9 h-9 rounded-xl bg-[#C2410C]/10 border border-[#C2410C]/20 flex items-center justify-center shrink-0">
-                  <div className="w-3 h-3 rounded-full border-2 border-[#C2410C] relative">
-                    <span className="absolute inset-0 rounded-full bg-[#C2410C]/30 animate-ping" />
-                  </div>
-                </div>
+              {/* Customers Floating Card */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3,
+                  ease: "easeInOut"
+                }}
+                className="
+                  absolute
+                  -top-6
+                  -left-4
+                  md:-left-8
+                  bg-white/95
+                  backdrop-blur-sm
+                  px-4 md:px-5
+                  py-2.5 md:py-4
+                  rounded-2xl
+                  shadow-xl
+                  border border-orange-50
+                "
+              >
+                <h3 className="text-xl md:text-3xl font-black text-[#C2410C]">
+                  5000+
+                </h3>
+                <p className="text-[10px] md:text-sm text-gray-500 font-semibold uppercase tracking-wider">
+                  Happy Customers
+                </p>
+              </motion.div>
 
-                {/* Left Badge Alignment */}
-                <div className="flex items-baseline gap-2">
-                  <span className="text-[10px] font-black text-white bg-[#C2410C] px-1.5 py-0.5 rounded-md tracking-wider uppercase shadow-sm shrink-0 self-center">
-                    New
-                  </span>
-                  <span className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-                    Optiworld
-                  </span>
-                </div>
+              {/* Experience Floating Card */}
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3,
+                  ease: "easeInOut"
+                }}
+                className="
+                  absolute
+                  -bottom-6
+                  -right-4
+                  md:-right-8
+                  bg-white/95
+                  backdrop-blur-sm
+                  px-4 md:px-5
+                  py-2.5 md:py-4
+                  rounded-2xl
+                  shadow-xl
+                  border border-orange-50
+                "
+              >
+                <h3 className="text-xl md:text-3xl font-black text-[#C2410C]">
+                  20+
+                </h3>
+                <p className="text-[10px] md:text-sm text-gray-500 font-semibold uppercase tracking-wider">
+                  Years Experience
+                </p>
+              </motion.div>
+
+              {/* Premium Badge */}
+              <div
+                className="
+                  absolute
+                  top-1/2
+                  -translate-y-1/2
+                  -right-2
+                  md:-right-6
+                  bg-[#C2410C]
+                  text-white
+                  px-3 md:px-5
+                  py-2 md:py-3
+                  rounded-xl md:rounded-2xl
+                  shadow-xl
+                  shadow-orange-700/30
+                  font-black
+                  text-[10px] md:text-xs
+                  uppercase
+                  tracking-wider
+                  text-center
+                  leading-tight
+                "
+              >
+                Premium
+                <br />
+                Eyewear
               </div>
-
-              <p className="text-center font-medium text-gray-500 mt-4 max-w-xs text-sm leading-relaxed">
-                Premium Spectacles, Luxury Sunglasses & Advanced Clinic Care
-              </p>
             </div>
-
-            {/* Bottom Floating Badge Card */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute -bottom-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-orange-50"
-            >
-              <h3 className="text-2xl sm:text-3xl font-black text-[#C2410C]">20+</h3>
-              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mt-0.5">
-                Years Experience
-              </p>
-            </motion.div>
 
           </motion.div>
         </div>
