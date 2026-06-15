@@ -39,7 +39,7 @@ const Navbar = () => {
             </span>
            
             <span className="text-lg xs:text-xl sm:text-2xl font-black text-white tracking-wide drop-shadow-sm truncate">
-              Optiworld
+              RBDEV_RAJIV
             </span>
           </div>
         </Link>

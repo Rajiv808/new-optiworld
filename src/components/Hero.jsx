@@ -42,7 +42,7 @@ const Hero = () => {
                 Welcome To
               </span>
 
-              {/* Massive "New Optiworld" text with Come-and-Go + Pulse Glow Motion */}
+              
               <motion.h1
                 initial={{ opacity: 0.3, scale: 0.98 }}
                 animate={{ 
@@ -61,7 +61,7 @@ const Hero = () => {
                 }}
                 className="text-5xl sm:text-6xl md:text-7xl xl:text-6xl font-black tracking-tighter text-gray-900 leading-none select-none"
               >
-                <span className="text-[#C2410C]">New</span> Optiworld
+                <span className="text-[#C2410C]">New</span> RBDEV_RAJIV
               </motion.h1>
 
               {/* Core Subtitle */}

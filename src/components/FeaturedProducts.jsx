@@ -34,7 +34,7 @@ const FeaturedProducts = () => {
   }, [])
 
   const handleWhatsApp = (product) => {
-    const message = `Hello Optiworld,
+    const message = `Hello RBDEV_RAJIV,
 
 I am interested in:
 

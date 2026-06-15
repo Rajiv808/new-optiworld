@@ -10,9 +10,6 @@ import {
   ArrowUpRight,
 } from "lucide-react"
 
-// 1. IMPORT YOUR LOCAL ASSETS HERE (Optional alternate method if direct strings don't resolve in your bundler)
-// import model1 from "../assets/model-1.jpg"
-// import model2 from "../assets/model-2.jpg"
 
 const Categories = () => {
   const navigate = useNavigate()

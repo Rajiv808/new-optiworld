@@ -36,7 +36,7 @@ const ContactSection = () => {
 
           <h2 className="text-3xl md:text-5xl font-black mt-4 text-gray-900">
 
-            Visit ⁿᵉʷ Optiworld Today
+            Visit RBDEV_RAJIV Today
 
           </h2>
 
@@ -139,7 +139,7 @@ const ContactSection = () => {
                   </h4>
 
                   <p className="text-gray-600">
-                    info@optiworld.com
+                    info@rbdev.com
                   </p>
 
                 </div>
@@ -249,31 +249,10 @@ const ContactSection = () => {
             }}
           >
 
-            {/* Map */}
+           
 
-            <div
-              className="
-                bg-white
-                rounded-[35px]
-                shadow-2xl
-                border
-                border-orange-100
-                overflow-hidden
-                h-[300px]
-                md:h-[350px]
-              "
-            >
-
-              <iframe
-                title="Optiworld Location"
-                src="https://www.google.com/maps?q=84/A,Santoshpur,Avenue,Aurobindo,Block,Santoshpur,Kolkata,West+Bengal+700075&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-              ></iframe>
-
-            </div>
+             
+        
 
             {/* Address */}
 
@@ -291,17 +270,7 @@ const ContactSection = () => {
 
               <div className="flex gap-4">
 
-                <div className="
-                  bg-gradient-to-br
-                  from-orange-100
-                  to-orange-200
-                  p-4
-                  rounded-2xl
-                ">
-
-                  <MapPin className="text-[#C2410C]" />
-
-                </div>
+                
 
                 <div>
 
@@ -313,19 +282,19 @@ const ContactSection = () => {
 
                   <p className="text-gray-600 leading-7">
 
-                    84/A, Santoshpur Avenue
+                    XYZ
                     <br />
 
-                    Aurobindo Block
+                    KOLKATA
                     <br />
 
-                    Santoshpur
+                    
                     <br />
 
-                    Kolkata
+                    
                     <br />
 
-                    West Bengal - 700075
+                    West Bengal 
 
                   </p>
 
