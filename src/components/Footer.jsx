@@ -56,7 +56,7 @@ const Footer = () => {
 
           <p className="text-center text-gray-500 text-sm">
 
-            © 2026 ⁿᵉʷ Optiworld. All Rights Reserved.
+            © 2026 opticals. All Rights Reserved.
 
           </p>
 
