@@ -11,7 +11,7 @@ const Footer = () => {
 
           <h2 className="text-3xl font-black tracking-wide text-white">
 
-            <span className="text-[#C2410C]">ⁿᵉʷ</span> RBDEV_RAJIV
+            <span className="text-[#C2410C]"></span> opticals
 
           </h2>
 

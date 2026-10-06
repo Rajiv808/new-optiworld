@@ -17,7 +17,7 @@ const AdminSidebar = () => {
     <div className="w-72 bg-gray-900 text-white min-h-screen p-6">
 
       <h1 className="text-3xl font-bold mb-10">
-        RBDEV_RAJIV
+        opticals
       </h1>
 
       <div className="flex flex-col gap-4">
